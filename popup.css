@@ -1,0 +1,223 @@
+:root {
+  --wd-blue: #2f6fed;
+  --wd-blue-hover: #255ddb;
+  --wd-border: #d6dde6;
+  --wd-text: #1f2937;
+  --wd-subtext: #6b7280;
+  --wd-bg: #ffffff;
+  --wd-shadow: 0 14px 40px rgba(0,0,0,0.18);
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 12px;
+  --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--wd-text);
+  background: transparent;
+}
+
+.card {
+  width: 380px;
+  background: var(--wd-bg);
+  border: 1px solid var(--wd-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--wd-shadow);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 14px 18px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.iconBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--wd-border);
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.iconBtn:hover {
+  background: #f7f9fc;
+}
+
+.divider {
+  height: 1px;
+  background: var(--wd-border);
+}
+
+.content {
+  padding: 18px;
+}
+
+.label {
+  display: block;
+  color: var(--wd-subtext);
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.textarea {
+  width: 100%;
+  border: 2px solid var(--wd-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-size: 16px;
+  outline: none;
+  resize: vertical;
+  min-height: 170px;
+}
+.textarea:focus {
+  border-color: #b7c7ff;
+  box-shadow: 0 0 0 4px rgba(47, 111, 237, 0.12);
+}
+
+.btnRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.btnPrimary {
+  height: 58px;
+  border-radius: 999px;
+  border: 1px solid var(--wd-blue);
+  background: var(--wd-blue);
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btnPrimary:hover { background: var(--wd-blue-hover); }
+
+.btnSecondary {
+  height: 58px;
+  border-radius: 999px;
+  border: 2px solid var(--wd-border);
+  background: white;
+  color: var(--wd-text);
+  font-weight: 800;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btnSecondary:hover { background: #f7f9fc; }
+
+.btnTertiary {
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid var(--wd-border);
+  background: white;
+  color: var(--wd-text);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 14px;
+}
+.btnTertiary:hover { background: #f7f9fc; }
+
+.statusBox {
+  margin-top: 14px;
+  border: 2px solid var(--wd-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-size: 18px;
+  color: #374151;
+  background: #fff;
+}
+
+.advanced {
+  margin-top: 16px;
+  border-top: 1px solid var(--wd-border);
+  padding-top: 16px;
+}
+
+.hidden { display: none; }
+
+.advGrid {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 14px;
+  align-items: end;
+}
+
+.select, .input {
+  width: 100%;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--wd-border);
+  padding: 0 14px;
+  font-size: 20px;
+  outline: none;
+  background: white;
+}
+.select:focus, .input:focus {
+  border-color: #b7c7ff;
+  box-shadow: 0 0 0 4px rgba(47, 111, 237, 0.12);
+}
+
+.checksRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #374151;
+  user-select: none;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+}
+
+.uploadBox {
+  margin-top: 16px;
+  border: 2px solid var(--wd-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: #fff;
+}
+
+.uploadTitle {
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.uploadHint {
+  color: var(--wd-subtext);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.uploadHint.small { margin-top: 10px; font-size: 13px; }
+
+.uploadRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+#xlsxFile {
+  width: 100%;
+}

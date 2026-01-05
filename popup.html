@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workday Bulk Domain Permissions</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <div class="title">Workday Bulk Domain Permissions</div>
+
+        <!-- Advanced toggle (chevron) -->
+        <button id="advancedToggle" class="iconBtn" type="button" aria-label="Advanced">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="M7 10l5 5 5-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="content">
+        <label class="label" for="bulkInput">Paste list</label>
+        <textarea id="bulkInput" class="textarea" rows="10"
+          placeholder="Paste either:
+• Block format with headers:
+MODIFY:/VIEW:/PUT:/GET:
+• Or just a plain list (then choose Target in Advanced)"></textarea>
+
+        <div class="btnRow">
+          <button id="runBtn" class="btnPrimary" type="button">Run</button>
+          <button id="stopBtn" class="btnSecondary" type="button">Stop</button>
+        </div>
+
+        <div class="statusBox" id="statusBox">Status: idle</div>
+
+        <!-- Advanced panel (collapsed by default) -->
+        <div id="advancedPanel" class="advanced hidden">
+          <div class="advGrid">
+            <div>
+              <label class="label" for="targetSelect">Target (used if no headers)</label>
+              <select id="targetSelect" class="select">
+                <option value="VIEW" selected>VIEW</option>
+                <option value="MODIFY">MODIFY</option>
+                <option value="PUT">PUT</option>
+                <option value="GET">GET</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="delayMs">Delay (ms)</label>
+              <input id="delayMs" class="input" type="number" value="250" min="0" step="50" />
+            </div>
+          </div>
+
+          <div class="checksRow">
+            <label class="check">
+              <input id="skipExisting" type="checkbox" checked />
+              <span>Skip if already selected</span>
+            </label>
+
+            <label class="check">
+              <input id="stopOnError" type="checkbox" />
+              <span>Stop on first error</span>
+            </label>
+          </div>
+
+          <div class="uploadBox">
+            <div class="uploadTitle">Upload Workday export (Excel)</div>
+            <div class="uploadHint">
+              The sheet should include columns like <b>Operation</b> and <b>Domain Security Policy</b>.
+            </div>
+
+            <div class="uploadRow">
+              <input id="xlsxFile" type="file" accept=".xlsx,.xls" />
+              <button id="clearBtn" class="btnTertiary" type="button">Clear</button>
+            </div>
+
+            <div class="uploadHint small">
+              Operations mapping: View Only → VIEW, Modify Only → MODIFY, View and Modify → both,
+              Get Only → GET, Put Only → PUT, Get and Put → both.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SheetJS (local file in extension folder) -->
+  <iframe id="xlsxSandbox" src="sandbox.html" style="display:none;"></iframe>
+    <script src="popup.js"></script>
+   
+
+  </body>
+</html>
