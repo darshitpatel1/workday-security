@@ -41,7 +41,7 @@ If the page is not open, the extension will prompt you to navigate to it.
 ### Option 2: Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/darshitpatel1/workday-security.git
 ```
 
 ---
