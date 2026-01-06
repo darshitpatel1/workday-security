@@ -1,7 +1,4 @@
 async function ensureXLSXLoaded() {
-  // Works for both:
-  // - window.XLSX attached libraries
-  // - global "XLSX" binding (const/var at top level) where window.XLSX may be undefined
 
   if (typeof XLSX !== "undefined") return XLSX;
   if (globalThis.XLSX) return globalThis.XLSX;

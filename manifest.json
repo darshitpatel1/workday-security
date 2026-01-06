@@ -1,13 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Workday Bulk Domain Permissions",
+  "name": "Automate Workday Domain Permissions",
   "version": "1.0.0",
-  "description": "Bulk add Domain Security Policies to Modify/View/Put/Get prompts on the Workday 'Maintain Domain Permissions for Security Group' task.",
+  "description": "Run on 'Maintain Domain Permissions for Security Group' task.",
   "permissions": ["activeTab", "storage", "tabs", "scripting"],
   "host_permissions": ["https://*.myworkday.com/*", "https://*.workday.com/*"],
+  "icons": {
+  "128": "icon.png"
+},
   "action": {
-    "default_title": "Workday Bulk Permissions",
-    "default_popup": "popup.html"
+    "default_title": "Automate Workday Domain Permissions",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   },
   "content_scripts": [
     {

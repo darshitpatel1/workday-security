@@ -1,5 +1,3 @@
-// Workday Bulk Domain Permissions (Manifest V3 content script)
-
 let SHOULD_STOP = false;
 let RUN_TOKEN = 0; // cancels previous run if user presses Run again
 

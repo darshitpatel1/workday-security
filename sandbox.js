@@ -1,5 +1,3 @@
-/* sandbox.js - runs in sandboxed page (SheetJS works here) */
-
 function normalize(s) {
   return String(s || "").replace(/\s+/g, " ").trim();
 }
