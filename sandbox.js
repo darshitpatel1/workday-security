@@ -242,7 +242,13 @@ window.addEventListener("message", (event) => {
 
   if (msg.type === "XLSX_SANDBOX_PING") {
     event.source?.postMessage(
-      { type: "XLSX_SANDBOX_PONG", requestId: msg.requestId, ok: true },
+      {
+        type: "XLSX_SANDBOX_PONG",
+        requestId: msg.requestId,
+        ok: true,
+        xlsxOk: typeof XLSX !== "undefined",
+        xlsxVersion: typeof XLSX !== "undefined" ? XLSX.version : null,
+      },
       "*"
     );
     return;
@@ -253,7 +259,11 @@ window.addEventListener("message", (event) => {
   const { requestId, arrayBuffer } = msg || {};
 
   try {
-    if (typeof XLSX === "undefined") throw new Error("XLSX not available in sandbox");
+    if (typeof XLSX === "undefined") {
+      throw new Error(
+        "XLSX not available in sandbox (xlsx.full.min.js did not load). Reload the extension and ensure xlsx.full.min.js is present and non-empty."
+      );
+    }
 
     const wb = XLSX.read(arrayBuffer, { type: "array" });
 

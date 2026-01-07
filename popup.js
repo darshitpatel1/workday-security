@@ -132,6 +132,14 @@ async function ensureSandboxReady() {
         if (!msg || msg.type !== "XLSX_SANDBOX_PONG" || msg.requestId !== requestId) return;
         done = true;
         window.removeEventListener("message", onMsg);
+        if (msg.xlsxOk === false) {
+          reject(
+            new Error(
+              "XLSX not loaded in sandbox. Reload the extension and ensure `xlsx.full.min.js` is present (not empty)."
+            )
+          );
+          return;
+        }
         resolve(true);
       };
 
